@@ -1,2 +1,2 @@
 # LeetCode
-My personal playground for LeetCode questions.
+This is my personal playground for LeetCode questions.
