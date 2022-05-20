@@ -29,3 +29,18 @@ for i in range(len(nums)):
             elif sum(nums[i:j]) > max_sum:
                 max_sum = sum(nums[i:j])
 max_sum
+
+
+#DP
+#main idea: reset current sum if sum([i:j])<j, and inside [i:j], update max_sum with the max current sum
+max_sum = current_sum = 0
+if max(nums) < 0:
+    max_sum = max(nums)
+else:
+    for n in nums:
+        current_sum += n
+        if current_sum < n:
+            current_sum = n
+        if current_sum > max_sum:
+            max_sum = current_sum
+max_sum
