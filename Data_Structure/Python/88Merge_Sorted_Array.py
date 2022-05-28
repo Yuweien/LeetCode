@@ -15,6 +15,25 @@ class Solution:
         nums1.sort()
         print(nums1)
 
+        #another method:two pointers, add to numsq in descending order
+        n1_idx, n2_idx = m-1, n-1  #descending order
+        counter = m+n-1
+
+        while counter >= 0:
+            if n1_idx < 0:
+                nums1[counter] = nums2[n2_idx] #if n1 is done, only need to add n2 numbers
+                n2_idx -= 1
+            elif n2_idx < 0:
+                nums1[counter] = nums1[n1_idx] #if n2 is done
+                n1_idx -= 1
+            elif nums1[n1_idx] <= nums2[n2_idx]:
+                nums1[counter] = nums2[n2_idx]
+                n2_idx -= 1
+            else:
+                nums1[counter] = nums1[n1_idx]
+                n1_idx -= 1
+            counter -= 1
+
 res = Solution()
 res.merge(nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3)
 res.merge(nums1 = [1], m = 1, nums2 = [], n = 0)
